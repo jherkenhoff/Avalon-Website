@@ -1,0 +1,240 @@
+
+$circle-color: $HIGHLIGHT_COLOR;
+$line-color: grey;
+
+/*-- GENERAL STYLES
+------------------------------*/
+.timeline {
+    line-height: 1.4em;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    h1, h2, h3, h4, h5, h6 {
+        line-height: inherit;
+    }
+}
+
+/*----- TIMELINE ITEM -----*/
+
+.timeline-item {
+    padding-left: 40px;
+    position: relative;
+    &:last-child {
+        padding-bottom: 0;
+    }
+}
+
+/*----- TIMELINE INFO -----*/
+
+.timeline-img {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin: 0 0 .5em 0;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+/*----- TIMELINE MARKER -----*/
+
+.timeline-marker {
+    position: absolute;
+    top: 0; bottom: 0; left: 0;
+    width: 15px;
+    // Circle
+    &:before {
+        background: $circle-color;
+        border: 3px solid transparent;
+        border-radius: 100%;
+        content: "";
+        display: block;
+        height: 15px;
+        width: 15px;
+        position: absolute;
+        top: 0px; left: 0px;
+        transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
+        z-index: 10;
+    }
+    // Line
+    &:after {
+        content: "";
+        width: 3px;
+        background: $line-color;
+        display: block;
+        position: absolute;
+        top: 19px; bottom: 0px; left: 9px;
+        z-index: 9;
+    }
+    .timeline-item:last-child &:after {
+        content: none;
+    }
+}
+.timeline-item:not(.period):hover .timeline-marker:before {
+    background: transparent;
+    border: 3px solid $circle-color;
+}
+
+/*----- TIMELINE CONTENT -----*/
+
+.timeline-content {
+    padding-bottom: 40px;
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/*----- TIMELINE PERIOD -----*/
+
+.period {
+    padding: 0;
+    .timeline-img {
+        display: none;
+    }
+    .timeline-marker {
+        &:before {
+            background: transparent;
+            content: "";
+            width: 15px;
+            height: auto;
+            border: none;
+            border-radius: 0;
+            top: 0;
+            bottom: 30px;
+            position: absolute;
+            border-top: 3px solid #CCD5DB;
+            border-bottom: 3px solid #CCD5DB;
+        }
+        &:after {
+            content: "";
+            height: 32px;
+            top: auto;
+        }
+    }
+    .timeline-content {
+        padding: 40px 0 70px;
+    }
+    .timeline-title {
+        margin: 0;
+    }
+}
+
+/*----------------------------------------------
+    MOD: TIMELINE SPLIT
+----------------------------------------------*/
+
+    .timeline-split {
+        @media (min-width: 768px) {
+            .timeline {
+                display: table;
+            }
+            .timeline-item {
+                display: table-row;
+                padding: 0;
+            }
+            .timeline-img,
+            .timeline-marker,
+            .timeline-content,
+            .period .timeline-img {
+                display: table-cell;
+                vertical-align: top;
+            }
+            .timeline-marker {
+                position: relative;
+            }
+            .timeline-content {
+                padding-left: 30px;
+            }
+            .timeline-img {
+                padding-right: 30px;
+            }
+            .period .timeline-title {
+                position: relative;
+                left: -45px;
+            }
+        }
+    }
+
+/*----------------------------------------------
+    MOD: TIMELINE CENTERED
+----------------------------------------------*/
+
+    .timeline-centered {
+        @extend .timeline-split;
+        @media (min-width: 992px) {
+            &,
+            .timeline-item,
+            .timeline-img,
+            .timeline-marker,
+            .timeline-content {
+                display: block;
+                margin: 0;
+                padding: 0;
+            }
+            .timeline-item {
+                padding-bottom: 40px;
+                overflow: hidden;
+            }
+            .timeline-marker {
+                position: absolute;
+                left: 50%;
+                margin-left:-7.5px;
+            }
+            .timeline-img,
+            .timeline-content {
+                width: 50%;
+            }
+            > .timeline-item:nth-child(odd) .timeline-img {
+                float: left;
+                text-align: right;
+                padding-right: 30px;
+            }
+            > .timeline-item:nth-child(odd) .timeline-content {
+                float: right;
+                text-align: left;
+                padding-left: 30px;
+            }
+            > .timeline-item:nth-child(even) .timeline-img {
+                float: right;
+                text-align: left;
+                padding-left: 30px;
+            }
+            > .timeline-item:nth-child(even) .timeline-content {
+                float: left;
+                text-align: right;
+                padding-right: 30px;
+            }
+            > .timeline-item.period .timeline-content {
+                float: none;
+                padding: 0;
+                width: 100%;
+                text-align: center;
+            }
+            .timeline-item.period {
+                padding: 50px 0 90px;
+            }
+            .period .timeline-marker:after {
+                height: 30px;
+                bottom: 0;
+                top: auto;
+            }
+            .period .timeline-title {
+                left: auto;
+            }
+        }
+    }
+
+/*----------------------------------------------
+    MOD: MARKER OUTLINE
+----------------------------------------------*/
+
+    .marker-outline {
+        .timeline-marker {
+            &:before {
+                background: transparent;
+                border-color: $circle-color;
+            }
+        }
+        .timeline-item:hover .timeline-marker:before {
+            background: $circle-color;
+        }
+    }

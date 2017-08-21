@@ -1,0 +1,58 @@
+$break-med: 600px;
+$break-large: 1000px;
+$clip-width: 960px;
+
+
+.clip-width {
+    height: 100%;
+    width: 80%;
+    max-width: $clip-width;
+    margin: auto;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    // Gutter
+    &>.col {
+        margin-bottom: 30px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    @media screen and (min-width: $break-med) {
+        flex-direction: row;
+        align-items: flex-start;
+
+        // Gutter
+        &>.col {
+            margin-bottom: 0;
+            margin-right: 60px;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        &.vcenter {
+            align-items: center;
+        }
+
+        &.hcenter {
+            justify-content: center;
+        }
+    }
+}
+
+.col {
+    flex: 1;
+}
+
+
+.col>p {
+    max-width: 650px;
+    margin: auto;
+    text-align: justify;
+}
