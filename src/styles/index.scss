@@ -46,7 +46,7 @@ footer {
     font-family: "Times New Roman", Times, serif;
     color: $HIGHLIGHT_COLOR;
     font-size: 40px;
-    @media screen and (min-width: $break-med) {
+    @media screen and (min-width: $BREAK_MED) {
         font-size: 50px;
     }
 }
@@ -60,18 +60,17 @@ footer {
 .hero {
     height: 100%;
     background-color: $MAIN_BACKGROUND_COLOR;
-    margin-bottom: 100px;
-    @media screen and (min-width: $break-med) {
+    @media screen and (min-width: $BREAK_MED) {
         height: 300px;
     }
-    @media screen and (min-width: $break-large) {
+    @media screen and (min-width: $BREAK_LARGE) {
         height: 500px;
     }
 }
 
 .hero-img {
     width: 80%;
-    @media screen and (min-width: $break-med) {
+    @media screen and (min-width: $BREAK_MED) {
         width: auto;
         margin: 20px;
         height: 100%;
@@ -85,7 +84,7 @@ footer {
 .hero-title {
     margin-bottom: 10px;
     border-bottom: 1px solid $HIGHLIGHT_COLOR;
-    @media screen and (min-width: $break-med) {
+    @media screen and (min-width: $BREAK_MED) {
         margin-bottom: 30px;
     }
 }
@@ -106,7 +105,7 @@ section.specs {
     img {
         width: 100%;
         max-width: 500px;
-        @media screen and (min-width: $break-large) {
+        @media screen and (min-width: $BREAK_LARGE) {
             margin-left: -120px;
         }
     }
@@ -129,4 +128,8 @@ section.development .clip-width {
         background-position: center;
         background-size: cover;
     }
+}
+
+
+section.roadmap {
 }

@@ -1,5 +1,5 @@
-$break-med: 600px;
-$break-large: 1000px;
+$BREAK_MED: 768px;
+$BREAK_LARGE: 992px;
 $clip-width: 960px;
 
 
@@ -23,7 +23,7 @@ $clip-width: 960px;
         }
     }
 
-    @media screen and (min-width: $break-med) {
+    @media screen and (min-width: $BREAK_MED) {
         flex-direction: row;
         align-items: flex-start;
 
