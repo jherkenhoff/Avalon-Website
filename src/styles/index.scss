@@ -151,3 +151,15 @@ section.roadmap {
 section h1 {
     text-align: center;
 }
+
+
+@supports (-ms-ime-align:auto) {
+    .hero-img {
+        @media screen and (min-width: $BREAK_MED) {
+            height: 300px;
+        }
+        @media screen and (min-width: $BREAK_LARGE) {
+            height: 500px;
+        }
+    }
+}
