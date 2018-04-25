@@ -85,10 +85,12 @@
                             <div class="timeline-content">
                                 <h3 class="timeline-title">Sensor Frontend</h3>
                                 <p>
-                                    The frontend board connects the sensors data lines to an highspeed board-to-board interconnection.
+                                    The frontend board connects the sensors differential data lines to an highspeed board-to-board interconnection.
                                     The sensor can output data at a rate of <b>19.2 Gbps</b>.
-                                    Additionally it provides the required supply voltages for the sensor using low noise LDO regulators,
-                                    since noise will directly effect image quality.
+                                    Five different supply rails are required for the operation of the sensor. By using efficient switching regulators
+                                    followed by LDO regulators, the overall heat dissipation could be reduced while still satisfying
+                                    the sensors ripple and noise requirements.
+                                    Additionally this board provides adjustable bias-voltages for the sensors internal circuitry by using low noise DAC's.
                                 </p>
                             </div>
                         </li>
@@ -154,7 +156,7 @@
                     <img class="resolution-comparison" src="assets/resolution-comparison.svg">
 
                     <p>
-                        Although I validated the signal integrity using Hyperlynx, the DDR3 ram interface is not working reliable yet. As a temporary workaround I switched to
+                        The DDR3 memory controller is not working reliable yet. As a temporary workaround I switched to
                         block-ram, wich is why I had to limit the resolution to a fraction of what is possible (pictured in the figure beside).
                     </p>
                 </div>
